@@ -14,7 +14,6 @@ class Solution {
         {
             int p=pq.top();
             pq.pop();
-//if(p>1)
             pq.push(p-1);
             k--;
         }
