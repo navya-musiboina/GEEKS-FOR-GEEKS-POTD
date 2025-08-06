@@ -1,7 +1,7 @@
 
 class Solution {
   public:
-    int func(vector<int>&prices,int i,int buy,vector<vector<int>>&dp)
+   /* int func(vector<int>&prices,int i,int buy,vector<vector<int>>&dp)
     {
         if(i>=prices.size()) return 0;
         if(dp[i][buy]!=-1) return dp[i][buy];
@@ -18,10 +18,16 @@ class Solution {
             return dp[i][buy]=max(take,ntake);
         }
     }
+   */ 
     int maximumProfit(vector<int> &prices) 
     {
-        int n=prices.size();
-        vector<vector<int>>dp(n,vector<int>(2,-1));
-        return func(prices,0,0,dp);
+        int n=prices.size(),ans=0;
+        for(int i=1;i<n;i++)
+        {
+            if(prices[i]>prices[i-1])
+            ans+=prices[i]-prices[i-1];
+        }
+        return ans;
+       
     }
 };
